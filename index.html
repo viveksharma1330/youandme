@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Magical Story ❤️</title>
+  <link rel="stylesheet" href="hey.css">
+</head>
+<body>
+
+<div class="floating-hearts"></div>
+<!-- Floating Hearts effect -->
+<div class="floating-butterflies"></div>
+
+<section class="page" id="page1">
+  <div class="content">
+    <h1 class="glowing-text">The Day We Met 🌸</h1>
+    <p>i was just scrolling reels and found a reel to share with you as samay but soon that 
+        samay turned into vivek , i really enjoyed talking with you about north of India and hopefully you 
+        didn't got angry with that reel 
+    </p>
+  </div>
+</section>
+
+<section class="page" id="page2">
+  <div class="content">
+    <h1 class="glowing-text">When I Fell for You 🌼</h1>
+    <p> nowadays i fell for you everyday every second 
+        but the first was when you held my hand on ramdara it was special
+        and i fell for your eyes your smile and everything 
+        the day you brought rajma chawal for me 
+        and the day we started having long conversations 
+    </p>
+  </div>
+</section>
+
+<section class="page" id="page3">
+  <div class="content">
+    <h1 class="glowing-text">Our Moments Together 🌻</h1>
+    <p>for me every second i spend with you feels like a magical moment </p>
+  </div>
+</section>
+
+<section class="page" id="page4">
+  <div class="content">
+    <h1 class="glowing-text">My Feelings For You 🌹</h1>
+    <p>I want to spend my time with you 💖</p>
+  </div>
+</section>
+
+<section class="page" id="page5">
+  <div class="shooting-stars"></div> <!-- Add this line -->
+  <div class="content">
+    <h1 class="glowing-text">My Promise To You</h1>
+    <p>I promise to stand by you ❤️</p>
+    <button onclick="showSecret()">madam jii ek request</button>
+    <p id="secret" style="display:none; margin-top:20px;">merse baat krte rha kro 💖</p>
+  </div>
+</section>
+
+<section class="page" id="page7">
+  <div class="content">
+    <h1 class="glowing-text">1 year 💕</h1>
+    <div id="countdown"></div>
+  </div>
+</section>
+
+
+<script>
+// Floating Hearts
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  document.querySelector('.floating-hearts').appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+setInterval(createHeart, 300);
+// Floating Butterflies
+function createButterfly() {
+  const butterfly = document.createElement('div');
+  butterfly.className = 'butterfly';
+  butterfly.style.left = Math.random() * 100 + 'vw';  // Random horizontal position
+  butterfly.style.animationDuration = (Math.random() * 3 + 4) + 's';  // Random floating speed
+  document.querySelector('.floating-butterflies').appendChild(butterfly);
+  setTimeout(() => butterfly.remove(), 5000); // Remove butterfly after animation
+}
+setInterval(createButterfly, 500);  // Create a butterfly every 500ms
+
+// Sparkling Stars
+function createStar() {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.top = Math.random() * 100 + 'vh';
+  star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+  document.body.appendChild(star);
+  setTimeout(() => star.remove(), 2000);
+}
+setInterval(createStar, 200);
+
+
+// Heart-Shaped Confetti
+function createConfetti(event) {
+  const confetti = document.createElement('div');
+  confetti.className = 'confetti';
+  confetti.style.left = event.pageX + 'px';
+  confetti.style.top = event.pageY + 'px';
+  document.body.appendChild(confetti);
+  setTimeout(() => confetti.remove(), 3000);
+}
+document.querySelector('button').addEventListener('click', createConfetti);
+
+// Secret Message
+function showSecret() {
+  document.getElementById('secret').style.display = 'block';
+}
+// Countdown Timer
+function updateCountdown() {
+  const targetDate = new Date('2025-08-25T00:00:00'); // Set your target date
+  const currentDate = new Date();
+  const timeLeft = targetDate - currentDate;
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateCountdown, 1000);
+
+
+</script>
+<script>
+  // Shooting Stars
+  function createShootingStar() {
+    const shootingStar = document.createElement('div');
+    shootingStar.className = 'shooting-star';
+    
+    // Random starting point from left and top
+    shootingStar.style.left = Math.random() * 100 + 'vw';
+    shootingStar.style.top = Math.random() * 30 + 'vh';
+    
+    document.querySelector('#page5 .shooting-stars').appendChild(shootingStar);
+    
+    // Remove after animation
+    setTimeout(() => shootingStar.remove(), 1500);
+  }
+  
+  // Create shooting stars randomly
+  setInterval(createShootingStar, 800); 
+  </script>
+  
+
+</body>
+</html>
